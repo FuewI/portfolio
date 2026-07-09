@@ -1,0 +1,252 @@
+.hero {
+  position: relative;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 168px 28px 90px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+  overflow: visible;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: -120px -10% auto -10%;
+  height: 720px;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 640px 420px at 20% 20%, var(--accent-soft), transparent 70%),
+    radial-gradient(ellipse 520px 420px at 85% 10%, var(--accent-2-soft), transparent 70%);
+  pointer-events: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-2);
+  background: var(--accent-soft);
+  border: 1px solid rgba(124, 92, 255, 0.35);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+}
+
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.1;
+  max-width: 620px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 18px;
+  line-height: 1.65;
+  max-width: 540px;
+  margin-top: 22px;
+}
+
+.button-row {
+  margin-top: 34px;
+}
+
+.social-row {
+  display: flex;
+  gap: 18px;
+  margin-top: 38px;
+}
+
+.social-row a {
+  color: var(--text-dim);
+  display: inline-flex;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-row a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Graphic */
+
+.hero-graphic {
+  position: relative;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-orb {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  opacity: 0.25;
+  filter: blur(70px);
+}
+
+.hero-terminal {
+  position: relative;
+  width: min(100%, 380px);
+  background: #12141c;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.terminal-titlebar {
+  display: flex;
+  gap: 7px;
+  padding: 14px 16px;
+  background: #171a24;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.dot-red {
+  background: #ff5f56;
+}
+
+.dot-yellow {
+  background: #ffbd2e;
+}
+
+.dot-green {
+  background: #27c93f;
+}
+
+.terminal-body {
+  padding: 22px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: #e4e4ec;
+}
+
+.terminal-body p {
+  margin: 0 0 6px;
+}
+
+.terminal-body p:not(:first-child) {
+  margin-top: 16px;
+}
+
+.prompt {
+  color: #38bdf8;
+}
+
+.output {
+  color: #9497a8;
+  margin-top: 6px !important;
+}
+
+.output-accent {
+  color: #4ade80;
+}
+
+.cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-left: 4px;
+  background: #4ade80;
+  vertical-align: -2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.float-card {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-sm);
+  font-size: 26px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 140px;
+    text-align: center;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero h1,
+  .subtitle {
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero-graphic {
+    height: 380px;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 128px 20px 70px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .float-card {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+}
